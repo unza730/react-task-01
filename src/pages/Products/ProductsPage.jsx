@@ -100,15 +100,17 @@ const ProductsPage = () => {
 
   return (
     <>
-      <div className='grid grid-cols-1 sm:flex  justify-between my-5 mx-[75px]'>
-        <div className="text-gray-900 my-auto md:mx-0 mx-auto text-[30px] sm:text-[25px] md:text-[40px] font-semibold font-['Poppins']">All Products</div>
+      <div className='grid grid-cols-1 sm:grid-cols-2 md:flex  md:justify-between my-5 mx-[20px] lg:mx-[120px]'>
+        <div className="text-gray-900 my-auto mx-auto sm:mx-0 md:mx-0 text-[30px] sm:text-[25px] md:text-[40px] font-semibold font-['Poppins']">All Products</div>
         <div className="flex  border shadow border border-stone-300 rounded-full">
           <div className='my-auto py-[13px] md:py-0 pl-[16px]'>
             <CiSearch fontSize='27px' />
           </div>
           <input
             type="text"
-            className="w-[240px] my-auto md:[290px] lg:w-[332px]  rounded-full pl-[0.5rem] pr-4 w-64 text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
+            // className="w-[240px] my-auto md:[290px] lg:w-[332px]  rounded-full pl-[0.5rem] pr-4 w-64 text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
+             className="w-full my-auto md:[290px] lg:w-[332px]  rounded-full pl-[0.5rem] pr-4 w-64 text-gray-700 focus:outline-none focus:ring focus:border-blue-300"
+           
             placeholder="Search"
           />
         </div>
@@ -118,15 +120,17 @@ const ProductsPage = () => {
       }}>
 
       </div>
-      <div className='flex p-4'>
+      <div className='flex p-4 lg:mx-[54px]'>
 
-        <div className="w-1/4 p-8 md:ml-0 lg:ml-[25px] hidden md:block">
+        <div className="w-1/4 p-8 md:p-4 lg:p-8 md:ml-0 lg:ml-[25px] hidden md:block">
           <Categories selectedCategory={selectedCategory} onCategoryChange={handleCategoryChange} />
           <PriceRange minPrice={minPrice} maxPrice={maxPrice} handlePriceInput={handlePriceInput} handleRangeInput={handleRangeInput} />
           <SortOrder selectedSortOption={sortOption} onSortOptionChange={handleSortOptionChange} />
 
         </div>
-        <div className='w-3/4 ml-[67px]'>
+        {/* <div className='w-3/4 mx-auto md:ml-[67px]'> */}
+        <div className=' mx-auto lg:ml-[67px]'>
+
           <div className="xs:flex justify-between md:hidden">
             <button type="button" onClick={openCategoryModal} className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Catgeory</button>
             <button type="button" onClick={openPriceRangeModal} className="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">Price Range</button>

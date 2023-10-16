@@ -1,19 +1,51 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from '../../../assets/logo.png';
 import {GoHeart} from 'react-icons/go';
  import  {BiMessageDetail} from 'react-icons/bi';
  import {TbUserSquareRounded} from 'react-icons/tb';
  import {RxCross1} from 'react-icons/rx';
+ import './index.css'
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      if (scrollTop > 0) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    // Check the window width on initial load
+    const checkScreenWidth = () => {
+      if (window.innerWidth >= 768) {
+        window.addEventListener('scroll', handleScroll);
+      } else {
+        window.removeEventListener('scroll', handleScroll);
+      }
+    };
+
+    // Add a resize event listener to check the window width on resize
+    window.addEventListener('resize', checkScreenWidth);
+
+    // Clean up the event listener on component unmount
+    return () => {
+      window.removeEventListener('resize', checkScreenWidth);
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   return (
     <>
-   <div className="flex w-[100%] h-[88px] md:left-0 md:top-[44px] bg-white border border-black">
+   {/* <div className="flex w-[100%] h-[88px] md:left-0 md:top-[44px] bg-white border border-black"> */}
+   <div className={`flex w-[100%] h-[88px] md:left-0 md:top-[44px] bg-white border border-black ${isScrolled ? 'scrolled' : ''}`}>
      <div className="md:hidden flex items-center">
       <button className="outline-none mobile-menu-button" onClick={toggleMobileMenu}>
         <svg className={`w-6 h-6 text-gray-500 hover:text-green-500 ${isMobileMenuOpen ? 'hidden' : ''}`} fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
@@ -24,7 +56,7 @@ const Navbar = () => {
         </svg>
       </button>
     </div>
-    <div className='h-[90px] w-[120px] xl:w-[154px] md:h-[154px] ml-0 xl:ml-[124px]  '>
+    <div className='h-[90px] w-[120px] xl:w-[154px] md:h-[154px] ml-0 xl:ml-[94px]  '>
       <img className="h-[90px] md:h-auto md:top-[-33px] absolute" src={logo} />
     </div>
     <div className=" md:w-[100%] hidden md:flex md:ml-[184px] lg:ml-[262px]  md:gap-7 lg:gap-8 my-auto">

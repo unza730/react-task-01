@@ -1,19 +1,21 @@
 import React from 'react';
+import ll from '../../assets/BMW.png'
 const ProductCard = ({products}) => {
   return (
     <div>
       <div className="w-full">
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-3 gap-3">
           {products?.map((item) => {
              return (
-              <div key={item.id} className="max-w-sm w-full mx-auto md:mx-0 py-6 px-3 sm:w-full md:w-full lg:w-full">
+              <div key={item.id} className="max-w-sm w-full mx-auto md:mx-0 py-6  sm:w-full md:w-full lg:w-full">
                 <div className="rounded-lg overflow-hidden">
                   <div
-                    className="bg-cover bg-center h-56 p-4 bg-lightgray bg-center bg-cover bg-no-repeat"
+                    className="bg-cover rounded-[1.5rem] bg-center h-[17rem] p-4 bg-lightgray bg-center bg-cover bg-no-repeat"
                     style={{
-                      backgroundImage: `url(${item?.productImage})`,
-                    }}
-                  >
+                      backgroundImage: `url('${item?.productImage}')`,
+                    }}>
+                     {/* ${item?.productImage} */}
+                      {/* <img src={item?.productImage} /> */}
                     <div className="flex justify-end">
                       <svg
                         className="h-6 w-6 text-white fill-current"
