@@ -40,6 +40,8 @@ const Categories = ({ selectedCategory, onCategoryChange }) => {
   
   return (
     <div>
+          <p className="text-zinc-800 my-5 text-base font-semibold font-Poppins">Categories</p>
+
       <CategoryOption
         id="all-category"
         value="All"

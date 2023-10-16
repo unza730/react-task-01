@@ -23,6 +23,8 @@ const SortOrder = ({ selectedSortOption, onSortOptionChange }) => {
  
   return (
     <div>
+       <p className="text-zinc-800 my-5 text-base font-semibold font-Poppins">Sort</p>
+
       <SortingOption
         id="most-popular"
         value="Most Popular"

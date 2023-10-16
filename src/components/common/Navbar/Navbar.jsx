@@ -40,7 +40,7 @@ const Navbar = () => {
       window.removeEventListener('resize', checkScreenWidth);
       window.removeEventListener('scroll', handleScroll);
     };
-  }, []);
+  }, [window.innerWidth]);
 
   return (
     <>
@@ -56,7 +56,7 @@ const Navbar = () => {
         </svg>
       </button>
     </div>
-    <div className='h-[90px] w-[120px] xl:w-[154px] md:h-[154px] ml-0 xl:ml-[94px]  '>
+    <div className='h-[90px] w-[120px] xl:w-[154px] md:h-[154px] ml-0 lg:ml-[94px]  '>
       <img className="h-[90px] md:h-auto md:top-[-33px] absolute" src={logo} />
     </div>
     <div className=" md:w-[100%] hidden md:flex md:ml-[184px] lg:ml-[262px]  md:gap-7 lg:gap-8 my-auto">
